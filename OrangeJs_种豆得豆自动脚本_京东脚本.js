@@ -585,6 +585,7 @@ function openInTask() {
         function ClickRk() {
             let a = className("android.widget.LinearLayout").id("com.jd.lib.personal.feature:id/gm").findOnce();
             let b = className("android.widget.LinearLayout").id("com.jd.lib.personal.feature:id/h4").findOnce();
+            let yhA = selector().findOnce();
             if (b != null && b.childCount() > 0 &&
                 b.child(0).childCount() > 0 &&
                 b.child(0).child(0).childCount() > 4 &&
@@ -626,7 +627,16 @@ function openInTask() {
                         }
                     }
                 }
+            } else if (yhA != null && yhA.childCount() > 0 &&
+                yhA.child(0).childCount() > 4 &&
+                yhA.child(0).child(4).childCount() > 0 &&
+                yhA.child(0).child(4).child(0).childCount() > 0 &&
+                yhA.child(0).child(4).child(0).child(0).childCount() > 1 &&
+                yhA.child(0).child(4).child(0).child(0).child(1).childCount() > 0 &&
+                yhA.child(0).child(4).child(0).child(0).child(1).child(0).text() == "种豆得豆") {
+                return yhA.child(0).child(4).child(0).child(0).child(1);
             }
+
         }
         if (className("android.view.View").desc("我的").findOnce() != null && text("种豆得豆").className("android.widget.TextView").findOnce() != null && text("瓜分亿万京豆").className("android.widget.TextView").findOnce() != null) {
             if (text("种豆得豆").className("android.widget.TextView").findOnce().parent().clickable() == true) {
